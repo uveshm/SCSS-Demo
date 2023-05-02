@@ -1,0 +1,183 @@
+
+//  Slider section start
+// ------------------------------
+
+.slider-section{
+   @include gradient(#f3f2f0, #f1edea #e9e8e6, vertical);
+   overflow: hidden;
+   @include media-breakpoint-up(lg) {
+     @include p(0);
+   }
+   .carousel-item{
+
+     @include media-breakpoint-down(lg) {
+       @include mb(35px);
+    }
+  }
+   .heading-section {
+      h2{
+        @include media-breakpoint-up(lg) {
+          max-width: 95%;
+        } 
+      }
+     @include media-breakpoint-up(lg) {
+       @include py(70px);
+     }
+     @include media-breakpoint-up(xl) {
+       @include py(100px);
+     }
+     @include media-breakpoint-up(xxl) {
+       @include py(115px);
+     }
+     @include position(relative);
+     @include media-breakpoint-down(lg) {
+      @include text-align(center);
+     }
+     &:after{
+       @include position(absolute);
+       content: '';
+       top: -30px;
+       left: -30px;
+       height: 130px;
+       width: 300px;
+       background:url(#{$imgPath}/slider-title-shade.png) no-repeat center;
+       background-size: contain; 
+       @include media-breakpoint-up(lg) {
+         top: 40px;
+       }
+       @include media-breakpoint-up(xl) {
+         top: 80px;
+         left: -20px;
+       }
+       @include media-breakpoint-up(xxl) {
+         top: 110px;
+         left: -10px;
+       }
+     }
+     > *{
+       position: relative;
+       z-index: 1;
+     }
+ 
+   }
+   .post-img{
+     @include media-breakpoint-up(lg) {
+       @include position(absolute);
+       bottom: 25px;
+       left: 0;
+       width: 55%;
+     }
+    @include media-breakpoint-down(lg) {
+      @include text-align(center);
+      @include mx(auto);
+      max-width: 450px;
+    }
+    @include media-breakpoint-down(md) {
+      max-width: 350px;
+    }
+     img{
+       width: auto;
+       display: block;
+       max-height: 400px;
+       @include ml(auto);
+       @include media-breakpoint-up(xl) {
+         max-height: 450px;
+       }
+       @include media-breakpoint-up(xxl) {
+         max-height: 500px;
+       }
+     }
+
+   }
+   .slick-slider {
+    // slick arrow css
+      .slick-arrow{
+        height: 50px;
+        width: 50px;
+        background-color: $color-white;
+        top: inherit;
+        bottom: 15px;
+        z-index: 1;
+        opacity: 1;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 15px;
+        color: transparent;
+        border: 0;
+        @include position(absolute);
+        @include border-radius(10px);
+        @include media-breakpoint-up(xxl) {
+          height: 65px;
+          width: 65px;
+        }
+        @include media-breakpoint-up(lg) {
+          @include yPos(-50%);
+          bottom: inherit;
+          top: 50%;
+        }
+        @include media-breakpoint-down(lg) {
+          &.slick-prev{
+            left: 15px;
+            bottom: -15px;
+          }
+          &.slick-next {
+            right: 15px;
+            bottom: -15px;
+          }
+        }
+        @include media-breakpoint-up(lg) {
+          &.slick-prev{
+            left: -5px
+          }
+          &.slick-next {
+            right: -5px
+          }
+        } 
+        &.slick-prev{
+          background-image: url(#{$imgPath}/pre.png);
+        }
+        &.slick-next{
+          background-image: url(#{$imgPath}/next.png);
+        }
+        &:before, &:after{
+          color: transparent;
+        }
+      }
+    
+   }
+   .slick-dots{
+    list-style: none;
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(center);
+    @include p(0); 
+    
+     button{
+      height: 17px;
+      width: 17px;
+      border: 0;
+      @include m(0 5px); 
+      @include border-radius(50%);
+      background-color:  $color-white;
+      color: transparent;
+      overflow: hidden;
+      display: block;
+       &:before{
+        display: none;
+       }
+     }
+     .slick-active{
+        button{
+          background-color:  $color-Chestnut;
+        }
+     }
+     @include media-breakpoint-down(lg) {
+      bottom: -40px;
+     }
+     @include media-breakpoint-up(lg) {
+       display: none !important;
+     }
+   }
+   
+ 
+ }

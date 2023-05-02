@@ -1,0 +1,40 @@
+// --------------------------------------------------
+// Node Modules
+// --------------------------------------------------
+@import "~bootstrap/scss/bootstrap";
+
+@import "~slick-carousel/slick/slick";
+// @import "~slick-carousel/slick/slick-theme";
+
+
+// --------------------------------------------------
+// Partial
+// --------------------------------------------------
+@import "partial/color";
+@import "partial/variable";
+@import "partial/mixin";
+@import "partial/flexbox";
+@import "partial/theme";
+
+
+
+// --------------------------------------------------
+// Components
+// --------------------------------------------------
+@import "components/button";
+@import "components/form";
+
+
+// --------------------------------------------------
+// Sections
+// --------------------------------------------------
+@import "sections/header";
+@import "sections/footer";
+@import "sections/slider";
+@import "sections/galery";
+
+
+// --------------------------------------------------
+// Pages
+// --------------------------------------------------
+@import "pages/home-page";
