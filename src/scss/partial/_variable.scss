@@ -1,0 +1,45 @@
+
+// Background image Path
+// ------------------------------
+$imgPath: '/unlimited_wp/dist/images'; 
+
+
+// Usage
+// div{
+   // background-image: url(#{$bg-imgPath}/img.jpg);
+// }
+
+ 
+// Fonts family
+@mixin Open-Sans() { 
+   font-family: open-sans, sans-serif;
+   font-style: normal;
+}
+// Usage
+// div{
+//    @include Open-Sans();
+// }
+
+
+@mixin Open-Sans-reguler() { 
+   font-family: open-sans, sans-serif;
+   font-style: normal;
+   @include font-weight(400);
+}
+// Usage
+// div{
+//    @include Open-Sans-reguler();
+// }
+
+
+@mixin Open-Sans-Bold() { 
+   font-family: open-sans, sans-serif;
+   font-style: normal;
+   @include font-weight(700);
+}
+// Usage
+// div{
+//    @include Open-Sans-Bold();
+// }
+
+

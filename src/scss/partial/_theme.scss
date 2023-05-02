@@ -1,0 +1,102 @@
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body{
+  @include Open-Sans();
+  color: $color-dark-gray;
+  background-color: $color-white;
+  @include pt(105px);
+  @include media-breakpoint-up(xl) { 
+    @include pt(130px);
+  }
+  @include font-size(18px);
+  @include media-breakpoint-up(xxl) { 
+    @include font-size(20px);
+  }
+
+}
+
+
+
+a {
+  color: $color-Chestnut;
+  &:hover{
+      color: $color-dark-gray;
+    }
+  }
+
+h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+
+  @include font-weight(700);
+
+}
+
+p {
+  @include font-weight(400);
+  @include font-size(18px);
+  @include media-breakpoint-up(xxl) { 
+    @include font-size(20px);
+  }
+}
+
+
+ol, ul, dl {
+  @include mt(0);
+  @include mb(1rem);
+  
+}
+h1{
+  @include font-size(35px);
+  @include media-breakpoint-up(md) { 
+    @include font-size(45px);
+  }
+  @include media-breakpoint-up(xl) { 
+    @include font-size(55px);
+  }
+  @include media-breakpoint-up(xxl) { 
+    @include font-size(70px);
+  }
+}
+
+h2{
+  @include font-size(25px);
+  @include media-breakpoint-up(md) { 
+    @include font-size(35px);
+  }
+  @include media-breakpoint-up(xl) { 
+    @include font-size(45px);
+  }
+  @include media-breakpoint-up(xxl) { 
+    @include font-size(55px);
+  }
+}
+h3{
+  @include font-size(22px);
+
+  @include media-breakpoint-up(xl) { 
+    @include font-size(28px);
+  }
+  @include media-breakpoint-up(xxl) { 
+    @include font-size(33px);
+  }
+}
+
+
+
+
+section{
+  @include pt(35px);
+  @include pb(45px);
+  @include media-breakpoint-up(xl) { 
+    @include pt(55px);
+    @include pb(44px);
+  }
+  @include media-breakpoint-up(xxl) { 
+    @include pt(80px);
+    @include pb(60px);
+  }
+}
+

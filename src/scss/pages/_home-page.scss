@@ -1,0 +1,251 @@
+// --------------------------------------------------
+// Home Page
+// --------------------------------------------------
+
+// Banner start
+// ------------------------------
+
+
+
+.banner{
+  @include position(relative);
+  @include media-breakpoint-up(xl) { 
+    min-height: 500px;
+    height: calc(100vh - 125px);
+    .container, .row , .col-lg-6, .banner-img{
+      height: 100%;
+    }
+  }
+  @include media-breakpoint-up(xxl) {
+    min-height: 750px;
+  }
+  &:after{
+    content: '';
+    @include position(absolute);
+    background:url(#{$imgPath}/banner-bg.png) no-repeat right top;
+    background-size: contain;
+    height: 200px;
+    width: 270px;
+    top: 0px;
+    right: 0;
+    z-index: -1;
+    @include media-breakpoint-down(md) {
+      background-size: 200px;
+    }
+  }
+   .banner-img{ 
+      @include media-breakpoint-up(lg) { 
+      width: calc(100% + 20px);
+      @include ml(-20px);
+    }
+    @include media-breakpoint-up(xl) { 
+      width: calc(100% + 40px);
+      @include ml(-40px);
+      @include display(flex);
+      @include justify-content(center);
+      @include align-items(center);
+    }
+    @include media-breakpoint-down(lg) {
+      @include text-align(center);
+      @include mx(auto);
+      max-width: 450px;
+    }
+    @include media-breakpoint-down(md) {
+      max-width: 350px;
+    }
+    img{
+      max-height: 100%;
+      width: auto;
+    }
+   }
+   .heading-section{
+      @include mt(20px);
+      height: 100%;
+      @include media-breakpoint-up(lg) { 
+        @include mt(0px);
+      }
+      @include media-breakpoint-up(xl) { 
+
+        @include display(flex);
+        @include justify-content(center);
+        @include align-items(flex-start);
+        flex-direction: column;
+      }
+      @include media-breakpoint-down(lg) {
+        @include text-align(center);
+      }
+    
+
+      h1{
+        @include mb(20px)
+      }
+      p{
+        @include mb(25px)
+      }
+      @include media-breakpoint-up(lg) { 
+        h1{
+          @include mb(35px)
+        }
+        p{
+          @include mb(40px)
+        }
+      }
+      @include media-breakpoint-up(xxl) { 
+        h1{
+          @include mb(55px)
+        }
+        p{
+          @include mb(60px)
+        }
+      }
+   }
+ }
+ 
+//  programs section start
+// ------------------------------
+
+
+.programs{
+  .program-box{
+    @include text-align(center);
+    max-width: 300px;
+    @include m(0 auto);
+    .img{
+      height: 140px;
+      @include display(flex);
+      @include justify-content(center);
+      @include align-items(flex-end);
+      @include position(relative);
+      &:after{
+        content: '';
+        @include position(absolute);
+        height: 180px;
+        top: 0;
+        left: 50%;
+        @include xPos(-50%);
+        width: 200px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        
+      }
+      img{
+        display: block;
+        @include mx(auto);
+        @include position(relative);
+        z-index: 1;
+        max-width: 140px;
+        @include media-breakpoint-up(xl) { 
+          max-width: 180px;
+        }
+        @include media-breakpoint-up(xxl) { 
+          max-width: 210px;
+        }
+      }
+    }
+    .text{
+      @include mt(20px);
+      @include media-breakpoint-up(xl) { 
+        @include mt(40px);
+      }
+    }
+  }
+  .row{
+    [class*=col-]:nth-child(1){
+      .img{        
+        &:after{
+          background-image:url(#{$imgPath}/sevices-1-bg.png);
+        }        
+      }
+    }
+    [class*=col-]:nth-child(2){
+      .img{        
+        &:after{
+          background-image:url(#{$imgPath}/sevices-2-bg.png);
+        }        
+      }
+    }
+    [class*=col-]:nth-child(3){
+      .img{        
+        &:after{
+          background-image:url(#{$imgPath}/sevices-3-bg.png);
+        }        
+      }
+    }
+  }
+}
+
+
+
+//  Yoga Breathing section start
+// ------------------------------
+
+.yoga-breathing{
+  overflow: hidden;
+  @include position(relative);
+  .heading-section{
+
+    h2{
+      @include media-breakpoint-up(lg) {
+        max-width: 95%;
+      } 
+    }
+  }
+  &:after{
+    content: '';
+    @include position(absolute);
+    top: 0;
+    left: 0;
+    height: 110px;
+    width: 125px;
+    background:url(#{$imgPath}/yoga-breathing-bg.png) no-repeat top left;
+    background-size: contain;
+    z-index: -1;
+    @include media-breakpoint-down(md) { 
+      background-size: 80px;
+    }
+  }
+  .post-img{
+    @include position(relative);
+    @include media-breakpoint-down(lg) {
+      @include text-align(center);
+      @include mx(auto);
+      max-width: 450px;
+    }
+    @include media-breakpoint-down(md) {
+      max-width: 350px;
+    }
+    &:after{
+      content: '';
+      @include position(absolute);
+      bottom: -40px;
+      right: -40px;
+      height: 150px;
+      width: 150px;
+      background:url(#{$imgPath}/yoga-breathing-shade.png) no-repeat center;
+      background-size: contain;
+      @include media-breakpoint-up(xl) { 
+        height: 180px;
+        width: 180px;
+        bottom: -55px;
+        right: -55px;
+      }
+      @include media-breakpoint-up(xxl) { 
+        height: 220px;
+        width: 220px;
+        bottom: -65px;
+        right: -65px;
+      }
+    }
+    
+    img{
+      display: block;
+      width: 100%;
+    }
+  }
+  .heading-section{
+    @include media-breakpoint-down(lg) {
+      @include text-align(center);
+    }
+  }
+}

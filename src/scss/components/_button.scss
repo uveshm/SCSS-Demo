@@ -1,0 +1,22 @@
+.btn{
+   @include border-radius(0);  
+   @include p(10px 25px);
+   @include font-weight(700);
+   @include font-size(18px);
+   border: 0;
+   outline: inherit;
+   @include box-shadow(inherit !important);
+   text-transform: uppercase;
+
+}
+
+.btn-primary{
+   background-color: $color-Chestnut;
+   color: $color-dark-gray;
+   &:hover, &:focus{
+      background-color: $color-dark-gray;
+      color: $color-white;   
+   }
+}
+
+

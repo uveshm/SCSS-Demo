@@ -1,0 +1,98 @@
+
+// galery css start
+// ------------------------------
+
+.galery{
+  .heading-section{
+    @include mb(1.5rem);
+    @include media-breakpoint-up(lg) {
+      @include mb(1rem);
+    }
+  }
+  .card {
+    @include transition(all 0.2s ease-in-out);
+    max-width: 350px;
+    @include media-breakpoint-up(xxl) {
+      max-width: 380px;
+    }
+    @include media-breakpoint-down(md) {
+      @include mx(auto);
+    }
+    
+    *{
+      @include transition(all 0.2s ease-in-out);
+    }
+    border: 0;
+    @include border-radius(0);
+    height: 100%;
+    .card-img{
+      @include border-radius(0);
+      overflow: hidden;
+      @include media-breakpoint-down(md) {
+        @include mb(0);
+      }
+      a{
+        display: block;
+        width: 100%;
+      }
+      img{
+        display: block;
+        max-width: 100%;
+        @include border-radius(0);
+      }
+      @include mb(15px);
+    }
+    .card-body{
+      @include pb(0);
+    }
+    .card-title{
+      @include mb(10px);
+      a{
+        text-decoration: none;
+        color: $color-dark-gray;
+        &:hover{
+          color: $color-Chestnut;
+
+        }
+      }
+    }
+    .card-footer {
+      background-color: transparent;
+      @include border-radius(0);
+      border: 0;
+      @include mt(auto);
+      @include pb(25px);
+      p{
+        @include font-size(16px);
+      }
+    }
+    &:hover{
+      @include box-shadow(11.437px 17.612px 23.28px 0.72px rgba(12, 13, 12, 0.1));
+      .card-img{
+        img{
+          @include scale(1.1);
+
+        }
+      }
+    }
+  }
+  @include media-breakpoint-up(md) {
+    .row{
+      [class*=col-]:nth-child(1){
+        .card {        
+          @include mr(auto);      
+        }
+      }
+      [class*=col-]:nth-child(2){
+        .card {        
+          @include mx(auto);   
+        }
+      }
+      [class*=col-]:nth-child(3){
+        .card {        
+          @include ml(auto);    
+        }
+      }
+    }
+  }
+}

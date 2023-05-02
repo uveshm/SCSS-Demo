@@ -1,0 +1,713 @@
+// --------------------------------------------------
+// Mixin Style
+// --------------------------------------------------
+
+// Float Propert
+// none | left | right | initial | inherit
+// ------------------------------
+@mixin float ($value: left) {
+    float: $value;
+}
+
+// Usage
+// div {
+//  @include float();
+// }
+
+
+// Position Propert
+// static | absolute | fixed | relative | sticky | initial | inherit
+// ------------------------------
+@mixin position ($value: relative) {
+    position: $value;
+}
+
+// Usage
+// div {
+//  @include position();
+// }
+
+
+// Display Propert
+// inline | inline-block | block | none
+// ------------------------------
+@mixin display ($value: block) {
+    display: $value;
+}
+
+// Usage
+// div {
+//  @include display();
+// }
+
+
+
+
+
+
+// box-sizing
+// ------------------------------
+@mixin box-sizing($type: border-box) {
+    -webkit-box-sizing: $type;
+    -moz-box-sizing: $type;
+    box-sizing: $type;
+}
+
+// Usage
+// div {
+//  @include box-sizing();
+// }
+
+
+// box-shadow
+// ------------------------------
+@mixin box-shadow( $value) {
+    -webkit-box-shadow: $value;
+    -moz-box-shadow: $value;
+    box-shadow: $value;
+}
+
+// Usage
+// div {
+//   @include box-shadow();
+// }
+
+
+// border-radius
+// ------------------------------
+@mixin border-radius($value: 3px) {
+    -webkit-border-radius: $value;
+    -moz-border-radius: $value;
+    border-radius: $value;
+}
+
+// Usage
+// div {
+//  @include border-radius();
+// }
+
+
+// circle
+// ------------------------------
+@mixin circle {
+    @include border-radius(100%);
+}
+
+// Usage
+// div {
+//  @include circle();
+// }
+
+
+// opacity
+// ------------------------------
+@mixin opacity($opacity: 0.5) {
+    opacity: $opacity;
+    filter: alpha(opacity=($opacity * 100));
+}
+
+// Usage
+// div {
+//  @include opacity();
+// }
+
+
+// Transition
+// ------------------------------
+@mixin transition($args) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+// Usage
+// div {
+//  @include transition();
+// }
+
+
+// Transform
+// ------------------------------
+@mixin transform($string){
+    -webkit-transform: $string;
+       -moz-transform: $string;
+        -ms-transform: $string;
+         -o-transform: $string;
+}
+
+// Usage
+// div {
+//  @include transform();
+// }
+
+
+// Transform origin
+// ------------------------------
+@mixin transform-origin($string){
+    -webkit-transform-origin: $string;
+       -moz-transform-origin: $string;
+        -ms-transform-origin: $string;
+         transform-origin: $string;
+}
+
+// Usage
+// div {
+//  @include transform-origin();
+// }
+
+
+// Transition
+// ------------------------------
+@mixin transition($string){
+    -webkit-transition: $string;
+       -moz-transition: $string;
+         -o-transition: $string;
+            transition: $string;
+}
+
+// Usage
+// div {
+//  @include transition();
+// }
+
+
+// Scale
+// ------------------------------
+@mixin scale($factor) {
+    -webkit-transform: scale($factor);
+       -moz-transform: scale($factor);
+        -ms-transform: scale($factor);
+         -o-transform: scale($factor);
+}
+
+// Usage
+// div {
+//  @include scale();
+// }
+
+
+// Rotate
+// ------------------------------
+@mixin rotate($deg) {
+    -webkit-transform: rotate($deg);
+       -moz-transform: rotate($deg);
+        -ms-transform: rotate($deg);
+         -o-transform: rotate($deg);
+}
+
+// Usage
+// div {
+//  @include rotate();
+// }
+
+
+// Display Order
+// <integer>
+// ------------------------------
+@mixin order($int: 0) {
+  -webkit-box-ordinal-group: $int + 1;
+     -moz-box-ordinal-group: $int + 1;
+              -webkit-order: $int;
+             -ms-flex-order: $int;
+                      order: $int;
+}
+
+// Usage
+// div {
+//   @include order();
+// }
+
+
+// Truncate
+// ------------------------------
+@mixin truncate($truncation-boundary: 100%) {
+    max-width: $truncation-boundary;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// Usage
+// div {
+//   @include truncate();
+// }
+
+
+
+
+
+
+// xPos
+// ------------------------------
+@mixin xPos($x) {
+    -webkit-transform: translateX($x);
+    -moz-transform: translateX($x);
+    -ms-transform: translateX($x);
+    transform: translateX($x);
+}
+
+// Usage
+// div {
+//   @include xPos(50px);
+// }
+
+
+// yPos
+// ------------------------------
+@mixin yPos($y) {
+    -webkit-transform: translateY($y);
+    -moz-transform: translateY($y);
+    -ms-transform: translateY($y);
+    transform: translateY($y);
+}
+
+// Usage
+// div {
+//   @include yPos(50px);
+// }
+
+
+@mixin xyPos( $values ) {
+    transform: translate($values, $values,);
+}
+
+// Usage
+// div {
+//   @include xyPos(50px);
+// }
+
+
+
+
+// gradient
+// ------------------------------
+@mixin gradient($start-color, $end-color, $orientation) {
+    background: $start-color;
+    @if $orientation == vertical {
+        // vertical
+        background: -moz-linear-gradient(top,  $start-color 0%, $end-color 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$start-color), color-stop(100%,$end-color));
+        background: -webkit-linear-gradient(top,  $start-color 0%,$end-color 100%);
+        background: -o-linear-gradient(top,  $start-color 0%,$end-color 100%);
+        background: -ms-linear-gradient(top,  $start-color 0%,$end-color 100%);
+        background: linear-gradient(to bottom,  $start-color 0%,$end-color 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$end-color',GradientType=0 );
+ } @else if $orientation == horizontal {
+        // horizontal
+        background: -moz-linear-gradient(left,  $start-color 0%, $end-color 100%);
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%,$start-color), color-stop(100%,$end-color));
+        background: -webkit-linear-gradient(left,  $start-color 0%,$end-color 100%);
+        background: -o-linear-gradient(left,  $start-color 0%,$end-color 100%);
+        background: -ms-linear-gradient(left,  $start-color 0%,$end-color 100%);
+        background: linear-gradient(to right,  $start-color 0%,$end-color 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$end-color',GradientType=1 );
+ }  @else {
+        // radial
+        background: -moz-radial-gradient(center, ellipse cover,  $start-color 0%, $end-color 100%);
+        background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,$start-color), color-stop(100%,$end-color));
+        background: -webkit-radial-gradient(center, ellipse cover,  $start-color 0%,$end-color 100%);
+        background: -o-radial-gradient(center, ellipse cover,  $start-color 0%,$end-color 100%);
+        background: -ms-radial-gradient(center, ellipse cover,  $start-color 0%,$end-color 100%);
+        background: radial-gradient(ellipse at center,  $start-color 0%,$end-color 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$end-color',GradientType=1 );
+    }
+}
+
+// Usage
+// div {
+//   @include gradient(#ff00ff, #ff00cc, vertical);
+// }
+
+
+// --------------------------------------------------
+// Grid Style
+// --------------------------------------------------
+
+// Grid Width
+// ------------------------------
+@mixin grid-width($width) {
+    width: $width;
+}
+
+// Usage
+// div {
+//   @include grid-width();
+// }
+
+// Grid Hight
+// ------------------------------
+@mixin grid-height($hight) {
+    height: $hight;
+}
+
+// Usage
+// div {
+//   @include grid-height();
+// }
+
+
+// Grid Row
+// ------------------------------
+@mixin grid-row() {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+// Usage
+// div {
+//   @include grid-row();
+// }
+
+
+// Grid padding
+// ------------------------------
+@mixin grid-padd() {
+    padding-left: 15px;
+    padding-right: 15px;
+    min-height: 1px;
+}
+
+// Usage
+// div {
+//   @include grid-padd();
+// }
+
+
+// --------------------------------------------------
+// Font Style
+// --------------------------------------------------
+
+// Font Size
+// ------------------------------
+@mixin font-size ($size) {
+    font-size: $size;
+}
+
+
+  
+
+// Usage
+// div {
+//  @include font-size(14px);
+// }
+
+
+// Font Weight
+// normal | bold | bolder | lighter | <numeric values>
+// ------------------------------
+@mixin font-weight ($weight: normal) {
+    font-weight: $weight;
+}
+
+// Usage
+// div {
+//  @include font-weight();
+// }
+
+
+// font Line Height
+// ------------------------------
+@mixin font-line-hight ($linehight: 1.5) {
+    line-height: $linehight;
+}
+
+// Usage
+// div {
+//  @include font-line-hight();
+// }
+
+// font Color
+// ------------------------------
+@mixin font-color ($color: #000000) {
+    color: $color;
+}
+
+// Usage
+// div {
+//  @include font-color();
+// }
+
+
+//
+//  Text Style
+//  ---------------------------------------------
+
+// Text Align
+// left | right | center | justify | inherit
+// ------------------------------
+@mixin text-align($align: left) {
+    text-align: $align;
+}
+
+// Usage
+// div {
+//  @include text-align();
+// }
+
+// Vertical Align
+// baseline | top | bottom | middle | text-top | text-bottom | sub | super | length
+// ------------------------------
+@mixin vertical-align($align: baseline) {
+    vertical-align: $align;
+}
+
+// Usage
+// div {
+//  @include vertical-align();
+// }
+
+// Text Transform
+// lowercase | uppercase | capitalize | none | inherit
+// ------------------------------
+@mixin text-transform($transform: none) {
+    text-transform: $transform;
+}
+
+// Usage
+// div {
+//  @include text-transform();
+// }
+
+// Text Decoration
+// none | underline | line-through | overline | inherit
+// ------------------------------
+@mixin text-decoration($decoration: none) {
+    text-decoration: $decoration;
+}
+
+// Usage
+// div {
+//  @include text-decoration();
+// }
+
+
+// --------------------------------------------------
+// Background Style
+// --------------------------------------------------
+
+// Background Color
+// ------------------------------
+@mixin background-color ($bgcolor: #ffffff) {
+    background-color: $bgcolor;
+}
+
+// Usage
+// div {
+//  @include background-color();
+// }
+
+// Background Size
+// auto | length | cover | contain | initial | inherit | <number>
+// ------------------------------
+@mixin background-size ($bgsize: auto) {
+    background-size: $bgsize;
+}
+
+// Usage
+// div {
+//  @include background-size();
+// }
+
+// Background Position
+// ------------------------------
+@mixin background-position( $x: center, $y: center ) {
+    background-position: $x $y;
+}
+
+// Usage
+// div {
+//   @include background-position();
+// }
+
+
+// Background Position
+// repeat | repeat-x | repeat-y | no-repeat | initial | inherit
+// ------------------------------
+@mixin background-repeat( $values: no-repeat ) {
+    background-repeat: $values;
+}
+
+// Usage
+// div {
+//   @include background-repeat();
+// }
+
+
+// margin  css
+// top | bottom | left | right 
+
+@mixin m( $values ) {
+    margin: $values;
+}
+// Usage
+// div {
+//   @include m();
+// }
+
+
+// margin-left
+@mixin ml( $values ) {
+    margin-left: $values;
+}
+// Usage
+// div {
+//   @include ml();
+// }
+
+// margin-right
+@mixin mr( $values ) {
+    margin-right: $values;
+}
+// Usage
+// div {
+//   @include mr();
+// }
+
+// margin-bottom
+@mixin mt( $values ) {
+    margin-top: $values;
+}
+// Usage
+// div {
+//   @include mt();
+// }
+
+// margin-bottom
+@mixin mb( $values ) {
+    margin-bottom: $values;
+}
+// Usage
+// div {
+//   @include mb();
+// }
+
+
+// margin-left-right
+@mixin mx( $values ) {
+    margin-left: $values;
+    margin-right: $values;
+}
+// Usage
+// div {
+//   @include mx();
+// }
+
+
+// margin-top-bottom
+@mixin my( $values ) {
+    margin-top: $values;
+    margin-bottom: $values;
+}
+// Usage
+// div {
+//   @include  my();
+// }
+
+
+
+// padding  css
+// top | bottom | left | right 
+
+@mixin p( $values ) {
+    padding: $values;
+}
+// Usage
+// div {
+//   @include p();
+// }
+
+
+// padding-left
+@mixin pl( $values ) {
+    padding-left: $values;
+}
+// Usage
+// div {
+//   @include ml();
+// }
+
+// padding-right
+@mixin pr( $values ) {
+    padding-right: $values;
+}
+// Usage
+// div {
+//   @include pr();
+// }
+
+// padding-bottom
+@mixin pt( $values ) {
+    padding-top: $values;
+}
+// Usage
+// div {
+//   @include pt();
+// }
+
+// padding-bottom
+@mixin pb( $values ) {
+    padding-bottom: $values;
+}
+// Usage
+// div {
+//   @include pb();
+// }
+
+
+// padding-left-right
+@mixin px( $values ) {
+    padding-left: $values;
+    padding-right: $values;
+}
+// Usage
+// div {
+//   @include px();
+// }
+
+
+// padding-top-bottom
+@mixin py( $values ) {
+    padding-top: $values;
+    padding-bottom: $values;
+}
+// Usage
+// div {
+//   @include py();
+// }
+
+
+
+
+// --------------------------------------------------
+// Media Queries
+// --------------------------------------------------
+
+//break-point
+// ------------------------------
+$breakpoints: (
+
+    "sm": 576px,
+    "md": 768px,
+    "lg": 992px,
+    "xl": 1280px,
+    "xxl": 1440px
+);
+@mixin break-point($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+// Usage
+// div {
+//   @include break-point('md') { }
+//   @include break-point('md',max) { }
+// }

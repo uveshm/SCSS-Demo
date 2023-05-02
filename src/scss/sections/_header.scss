@@ -1,0 +1,115 @@
+header{
+   .navbar{
+      top: 15px;
+      @include transition(all 0.2s ease-in-out);
+      &.sticky-nav{
+         top: 0;
+         @include box-shadow(0px 0px 10px 0px rgb(0 0 0 / 15%));
+      }
+   }
+   .navbar-brand{
+      max-width: 70px;
+      img{
+         @include display(block);
+         width: 100%      
+      }
+      @include media-breakpoint-up(lg) { 
+         max-width: 85px;
+         @include mr(20px);
+      }
+      @include media-breakpoint-up(xxl) { 
+         max-width: 100px;
+      }
+   }
+   .nav-item{
+      + .nav-item{
+         @include media-breakpoint-up(lg) { 
+            @include ml(30px);
+         }
+         @include media-breakpoint-up(xl) { 
+            @include ml(45px);
+         }
+         @include media-breakpoint-up(xxl) { 
+            @include ml(60px);
+         }
+      }
+   }
+   .nav-link{
+      @include font-size(18px);
+      @include media-breakpoint-up(xxl) { 
+         @include font-size(20px);
+
+      }
+   }
+   @include media-breakpoint-down(lg) {
+      .navbar-collapse{
+         display: block !important;
+         height: 100% !important;
+         @include position(fixed);
+         left: 0;
+         top: 85px;
+         width: 100%;
+         background-color: $color-white;
+         @include transition(all 0.3s ease-in-out);
+         @include xPos(100%);
+         @include px(15px);
+         &.show{
+            @include xPos(0%);
+         }
+      }
+   }
+   .navbar-toggler {
+      width: 45px;
+      height: 37px;
+      @include position(relative);
+      @include box-shadow(inherit !important);
+      border:1px solid $color-dark-gray;
+      cursor: pointer;
+      span {
+         @include display(block);
+         @include position(absolute);
+         height: 3px;
+         width: calc(100% - 10px);
+         background: $color-dark-gray;
+         @include border-radius(9px);
+         opacity: 1;
+         left: 5px;
+         @include rotate(0deg);
+         @include transition(all 0.25s ease-in-out);
+         @include transform-origin(left center);
+         &:nth-child(1) {
+            top: 7px;
+         }
+         &:nth-child(2) {
+            top: 16px;
+         }
+         &:nth-child(3) {
+            top: 25px;
+         }
+       }
+       &.active{
+         span {
+            &:nth-child(1) {
+               @include rotate(45deg);
+               top: 5px;
+               left: 10px;
+            }
+            &:nth-child(2) {
+               width: 0%;
+               opacity: 0;
+            }
+            &:nth-child(3) {
+               @include rotate(-45deg);
+               top: 28px;
+               left: 10px;
+            }
+         }
+       }
+    }
+}
+
+
+
+
+
+

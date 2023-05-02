@@ -1,0 +1,38 @@
+form{
+   .form-control{
+      background-color: $color-gray;
+      border: 1px solid $color-med-gray;
+      min-height: 50px;
+      @include font-size(18px);
+      @include px(15px);
+      @include media-breakpoint-up(xl) { 
+         @include px(20px);
+      }
+      @include media-breakpoint-up(xxl) { 
+         @include px(25px);
+         @include font-size(20px);
+         min-height: 55px
+      }
+      @include border-radius(0);
+      &:focus{
+         border-color: $color-Chestnut !important;
+         background-color: $color-gray;
+         outline: 0;
+         @include box-shadow(inherit);
+      }
+      &:focus-visible{
+         border-color: $color-Chestnut !important;
+         outline: 0;
+      }
+      &::-webkit-input-placeholder { /* Edge */
+         color: $color-med-gray;
+       }       
+       &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+         color: $color-med-gray; 
+       }
+       &::placeholder {
+         color: $color-med-gray;        
+       }
+   }
+}
+
